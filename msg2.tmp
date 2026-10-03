@@ -1,0 +1,18 @@
+docs: 重写 README 并加入界面截图
+
+面向公开仓库重写首页，把"这是什么 / 怎么下载 / 长什么样"放到最前面。
+
+- 顶部徽章（Release / License / Electron / Material Design 3 / 平台）与 logo
+- 新增「下载」区：普通用户走 Releases 压缩包，开发者走 npm run dist，
+  并说明 SmartScreen 提示的处理方式
+- 新增「界面」区：欢迎页、问答回答、计算器、学习路径、自检清单、术语表、深色模式
+- 新增「功能一览」表，9 个模块各一行
+- 保留并精简原有的三个设计来源、HelloAgents 移植对照表、领域设计决策、
+  零安装实现方式、M3 加固对照表、目录结构
+- 补充 portable 临时目录坑、安全设计、验证结果
+
+docs/screenshots/ 为新增，文件名统一用 ASCII 以避免 README 图片 URL 编码问题。
+
+另修一处截图工具缺陷：连续程序化点击时 capturePage 可能在导航高亮过渡完成前
+截图，导致发布图出现「页面标题与高亮项不一致」。screenshot.js 现在会在每次截图
+前断言 aria-current 与目标视图一致，不一致就报警而不是默默产出一张错图。

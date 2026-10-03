@@ -41,7 +41,18 @@ app.whenReady().then(async () => {
   for (const s of SHOTS) {
     if (want.length && !want.includes(s.view)) continue;
     await win.webContents.executeJavaScript(`document.querySelector('[data-view="${s.view}"]').click()`);
-    await new Promise((r) => setTimeout(r, 900));
+    // Self-check: the nav highlight must match the view we asked for.
+    // Programmatic clicks in a tight loop can be captured mid-transition, which
+    // previously produced screenshots where the highlighted nav item disagreed
+    // with the page title. Fail loudly instead of publishing a wrong image.
+    const navState = await win.webContents.executeJavaScript(`(() => {
+      const cur = [...document.querySelectorAll('.nav-item[aria-current="page"]')].map(b=>b.getAttribute('data-view'));
+      return { cur, title: document.querySelector('#viewTitle').textContent };
+    })()`);
+    if (navState.cur.length !== 1 || navState.cur[0] !== s.view) {
+      console.warn(`  ! ${s.name}: nav highlight mismatch — got [${navState.cur}] expected [${s.view}] (title=${navState.title})`);
+    }
+    await new Promise((r) => setTimeout(r, 1100));
     if (s.after === 'icer') {
       await win.webContents.executeJavaScript(`(async () => {
         // Pick the ICER tool, then use the built-in preset so the demo shows a

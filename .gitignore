@@ -5,6 +5,7 @@ node_modules/
 release/
 build/
 dist/
+dist-staging/
 
 # 开发过程截图与日志
 shots/
