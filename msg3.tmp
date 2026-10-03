@@ -1,9 +1,0 @@
-docs: 修正 Release 下载区的文件名
-
-Release 资源名在上传后不可修改（GitHub 只允许改 label），而 Windows 下
-通过命令行把中文路径传给 gh 会被破坏，两次因素叠加导致 v1.0.0 的资源
-最初被命名成 default.exe 与 -v1.0.0-.zip。已改用 ASCII 文件名重新上传，
-README 与 Release 说明同步更新实际文件名。
-
-同时在 README 中注明：Release 资源用英文名是为避开下载工具与控制台代码页
-对中文文件名的兼容问题，解压后的 exe 仍是中文名。

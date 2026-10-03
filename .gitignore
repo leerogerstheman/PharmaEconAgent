@@ -44,3 +44,9 @@ credentials.json
 
 # 涓存椂鏂囦欢
 commit-msg.tmp
+
+# 构建 / 脚本临时文件
+*.tmp
+rename.json
+label.json
+notes.json
