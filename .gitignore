@@ -1,0 +1,45 @@
+# 依赖
+node_modules/
+
+# 构建产物（都是脚本生成的，不要提交）
+release/
+build/
+dist/
+
+# 开发过程截图与日志
+shots/
+*.log
+*.err
+selftest.log
+selftest.err
+shot.log
+shot.err
+diag.log
+diag.err
+out.log
+err.log
+
+# 运行时产物（用户在本机运行后产生）
+我的报告/
+知识库/kb.json
+skills/*/
+!skills/.gitkeep
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# 绝不提交任何凭据
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# 临时文件
+commit-msg.tmp

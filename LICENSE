@@ -1,0 +1,58 @@
+药物经济学智能体（Pharmacoeconomics Agent）
+Copyright (c) 2026 药物经济学智能体项目组
+
+本作品采用「知识共享 署名-非商业性使用-相同方式共享 4.0 国际许可协议」
+（CC BY-NC-SA 4.0）发布。
+
+你被允许：
+  · 分享（复制、转载）—— 在任何媒介上
+  · 改编 —— 在任何用途下
+
+条件：
+  · 署名 —— 必须注明原作者
+  · 非商业性使用 —— 不得用于商业目的
+  · 相同方式共享 —— 改编作品须以相同协议发布
+
+完整协议文本：https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans
+
+
+───────────────────────────── 第三方内容与致谢 ─────────────────────────────
+
+本项目为独立实现，未包含 Datawhale《Hello-Agents》与 HelloAgents 框架的源代码。
+其**架构设计思路**（ReAct 范式、ToolResponse 工具响应协议、上下文工程分层、
+记忆与检索、Skills 知识外化等）参考了上述开源项目，遵循 CC BY-NC-SA 4.0。
+
+本项目知识库中的内容综合整理自以下公开发布的资料，每条知识库条目在软件
+「知识库」页面中均标注了其独立出处：
+
+  · Wikipedia contributors. "Pharmacoeconomics". Wikipedia, The Free Encyclopedia.
+    https://en.wikipedia.org/wiki/Pharmacoeconomics  （CC BY-SA 4.0）
+  · 刘国恩、胡善联、吴久鸿、吴晶等. 《中国药物经济学评价指南（2020 中英双语版）》.
+    中国市场出版社. ISBN 9787509219171. 中国药学会团体标准 T/CPHARMA 003-2020
+  · Husereau D, et al. CHEERS 2022 statement. BMJ 2022;376:e067975
+  · NICE. Technology appraisal and highly specialised technologies guidance: the manual (PMG36)
+  · Tan Torres Edejer T, Baltussen R, Adam T, et al. (编).
+    Making Choices in Health: WHO Guide to Cost-Effectiveness Analysis. WHO 2003. ISBN 92 4 154601 8
+  · Goetghebeur MM, et al. Evidence and Value: Impact on DEcision-Making – the EVIDEM
+    framework and potential applications. BMC Health Serv Res 2008;8:270
+  · Brazier J, et al. Identification, Review, and Use of Health State Utilities in
+    Cost-Effectiveness Models. Value Health 2019;22(3):267-275
+  · Drummond M, Sculpher M, et al.
+    Methods for the Economic Evaluation of Health Care Programmes
+
+界面设计遵循 Google Material Design 3 规范。
+
+知识库内容为教学用途的整理与转述，不构成医疗、用药或医保决策建议。
+正式研究请以原始指南与文献为准。
+
+
+───────────────────────────── 分发说明 ─────────────────────────────
+
+本仓库**不包含**编译好的可执行文件（单文件 exe 约 69 MB）。
+请自行构建：
+
+    npm install
+    npm run dist          # 产物在 release/药物经济学智能体.exe
+    node scripts/make-release.js
+
+GitHub Releases 可用于分发编译好的 exe。

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';" />
+  <title>药物经济学智能体</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/app.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- ============ 左侧导航 ============ -->
+    <nav class="nav-rail" aria-label="主导航">
+      <div class="nav-rail__brand">
+        <div class="nav-rail__logo" aria-hidden="true" data-icon="pill"></div>
+        <span class="nav-rail__brand-text">药物经济学<br />智能体</span>
+      </div>
+      <div id="navItems" style="display:contents"></div>
+      <div style="flex:1"></div>
+      <button class="nav-item" data-view="settings" type="button">
+        <span data-icon="settings" aria-hidden="true"></span>
+        <span>设置</span>
+      </button>
+    </nav>
+
+    <!-- ============ 主内容 ============ -->
+    <main id="main" class="chat" role="main">
+      <header class="topbar">
+        <div style="flex:1;min-width:0">
+          <div class="topbar__title" id="viewTitle">智能问答</div>
+          <div class="topbar__sub" id="viewSub">用大白话学药物经济学</div>
+        </div>
+        <div class="topbar__actions">
+          <span class="mode-badge mode-badge--offline" id="modeBadge" title="当前运行模式">
+            <span class="mode-badge__dot"></span>
+            <span id="modeText">检测中…</span>
+          </span>
+          <button class="icon-btn tooltip-host" id="themeBtn" type="button"
+                  aria-label="切换深色或浅色外观" title="切换深色或浅色外观">
+            <span data-icon="contrast" aria-hidden="true"></span>
+            <span class="tooltip">切换外观</span>
+          </button>
+          <button class="icon-btn tooltip-host" id="helpBtn" type="button"
+                  aria-label="打开使用帮助" title="打开使用帮助">
+            <span data-icon="help" aria-hidden="true"></span>
+            <span class="tooltip">使用帮助</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="messages" id="content" aria-live="polite" aria-label="内容区"></section>
+
+      <footer class="input-bar" id="inputBar">
+        <div class="input-bar__inner">
+          <div class="input-wrap">
+            <label for="askInput" class="sr-only">输入你的问题</label>
+            <textarea id="askInput" rows="1" placeholder="用大白话问，比如：QALY 是什么意思？"></textarea>
+            <button class="btn btn--primary" id="sendBtn" type="button">
+              <span data-icon="send" aria-hidden="true"></span>
+              <span class="btn__label">发送问题</span>
+            </button>
+          </div>
+          <div class="input-bar__row">
+            <div class="segmented" role="tablist" aria-label="回答方式">
+              <button class="segmented__item" role="tab" data-mode="react" aria-selected="true" type="button">直接回答</button>
+              <button class="segmented__item" role="tab" data-mode="plan" aria-selected="false" type="button">先规划再解答</button>
+              <button class="segmented__item" role="tab" data-mode="reflect" aria-selected="false" type="button">回答后自查</button>
+            </div>
+            <div class="input-bar__tip" id="inputTip">按 Enter 发送，Shift + Enter 换行</div>
+            <button class="btn btn--text btn--sm" id="newChatBtn" type="button">开始新对话</button>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" aria-live="polite" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center"></div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

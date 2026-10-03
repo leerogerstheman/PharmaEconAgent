@@ -1,0 +1,65 @@
+{
+  "name": "pharmaecon-agent",
+  "version": "1.0.0",
+  "description": "药物经济学智能体 —— 面向药学与经济学学生的零配置药物经济学学习与计算助手",
+  "main": "src/main/main.js",
+  "author": {
+    "name": "药物经济学智能体项目组"
+  },
+  "license": "CC BY-NC-SA 4.0",
+  "private": true,
+  "scripts": {
+    "kb": "node scripts/build-knowledge.js",
+    "icon": "node scripts/make-icon.js",
+    "selftest": "electron scripts/selftest.js",
+    "shots": "electron scripts/screenshot.js",
+    "prebuild": "npm run kb && npm run icon",
+    "dev": "electron .",
+    "dist": "npm run prebuild && electron-builder --win portable --x64",
+    "dist:dir": "npm run prebuild && electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "org.pharmaecon.agent",
+    "productName": "药物经济学智能体",
+    "copyright": "知识条目综合自公开出版物与维基百科（CC BY-SA 4.0）",
+    "asar": true,
+    "compression": "maximum",
+    "removePackageScripts": true,
+    "npmRebuild": false,
+    "buildDependenciesFromSource": false,
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "renderer/**/*",
+      "dist/kb.json",
+      "build/icon.png",
+      "!**/*.map",
+      "!**/node_modules/**/{test,__tests__,tests,example,examples,doc,docs}/**"
+    ],
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "药物经济学智能体.exe"
+    },
+    "portable": {
+      "artifactName": "药物经济学智能体.exe",
+      "unicode": true,
+      "requestExecutionLevel": "user"
+    },
+    "electronDownload": {
+      "cache": "build/electron-cache"
+    }
+  }
+}
