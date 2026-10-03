@@ -40,8 +40,8 @@
 **普通用户（推荐）**
 
 1. 打开 [Releases 页面](https://github.com/leerogerstheman/PharmaEconAgent/releases)
-2. 下载 `药物经济学智能体-v1.0.0-完整包.zip`
-3. 解压，**双击 `药物经济学智能体.exe`**
+2. 下载 `PharmaEconAgent-v1.0.0-full-package.zip`
+3. 解压，**双击里面的 `药物经济学智能体.exe`**
 4. 等 3～10 秒，窗口打开就能用
 
 > Windows 可能提示"已保护你的电脑" → 点「更多信息」→「仍要运行」。
@@ -62,7 +62,11 @@ node scripts/make-release.js      # 组装完整发布目录
 </td></tr>
 </table>
 
-**只要单个 exe 的用户**：下载 `药物经济学智能体.exe`（69 MB）即可，完整包含运行时，无需安装任何东西。
+**只要单个 exe 的用户**：下载 `PharmaEconAgent-v1.0.0-Windows-x64.exe`（69 MB）即可，
+完整包含运行时，无需安装任何东西。
+
+> Release 资源的文件名用英文，是为了避开部分下载工具与 Windows 控制台代码页
+> 对中文文件名的兼容问题。解压后的 exe 仍是中文名 `药物经济学智能体.exe`。
 
 ---
 
